@@ -10,7 +10,7 @@ def init_game_board():
     for i in range(6):
         Game_board.append([])
         for j in range(7):
-            Game_board[i].append("O")
+            Game_board[i].append(u"\u25CF")
 
 
 # Game board drawing function design 1
@@ -28,9 +28,11 @@ def init_game_board():
 
 def draw_game_board():
     for i in range(6):
+        print(Back.CYAN + ' ', end='')
         for j in range(6):
             print(Back.CYAN + Fore.BLACK + str(Game_board[i][j]), end=Back.CYAN + '  ')
-        print(Back.CYAN + Fore.BLACK + str(Game_board[i][6]))
+        print(Back.CYAN + Fore.BLACK + str(Game_board[i][6]), end='')
+        print(Back.CYAN + ' ')
 
 
 init_game_board()
