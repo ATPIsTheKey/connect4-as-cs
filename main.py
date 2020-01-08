@@ -2,6 +2,7 @@ from colorama import Fore, init, Back
 init(autoreset=True)
 
 Game_board = []
+# u"\u25CF" is the code for a circle
 
 
 # Game board array initialization
