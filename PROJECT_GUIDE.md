@@ -29,18 +29,3 @@
 .txt --no-index --find-links file:///tmp/packages` in this project's directory
   before running the program.
  - Also, you have to use Python 3.
-
-# A quick introduction to git
-## Basic commands
-- $ `git init : initialise new repository.`
-- $ `git status : prints status information.`
-- $ `git add <file> : stage a file.`
-- $ `git rm <file> : remove file and stage the removal.`
-- $ `git reset HEAD <file> : unstage file.`
-- $ `git checkout [–] <file> : revert file to last committed
-version (snapshot).`
-- $ `git diff : prints differences between working tree and
-index (stage area).`
-- $ `git log : show commit history.`
-- $ `git commit : commit currently staged files (create new
-snapshot).`
