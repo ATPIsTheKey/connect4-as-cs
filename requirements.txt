@@ -1,1 +1,2 @@
 certifi==2019.6.16
+colorama==0.4.3
