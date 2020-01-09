@@ -16,13 +16,13 @@
 
 | **Module/function name** | **Parameters** | **Return values** | **Description** |
 | --- | --- | --- | --- |
-| **init\_game\_board()** | **game\_board:** `ARRAY[7][6]` as `GLOBAL (by reference)` | `VOID` | ...|
-| **draw\_game\_board()** | **game\_board:** `ARRAY[7][6]` as `LOCAL (by value)` | `VOID` | ...|
+| **init\_game\_board()** | `VOID` | `ARRAY[7][6]` | ...|
+| **draw\_game\_board()** | **game\_board:** `ARRAY[7][6]` `by value` | `VOID` | ...|
 | **input\_player\_move()** | `VOID` | **valid\_player\_move:** `INTEGER` | ...|
-| **update\_board\_from\_player\_move()** | **game\_board:** `ARRAY[7][6]` as `GLOBAL (by reference)` <br/><br/>  **player\_move:** `INTEGER` as `LOCAL (by value)` | `VOID` | ...|
-| **check\_gameboard\_win()** | **game\_board:** `ARRAY[7][6]` as `LOCAL (by value)` | **game\_won:** `BOOLEAN` | ...|
-| **check\_game\_board\_full()** | **game\_board:** `ARRAY[7][6]` as `LOCAL (by value)` | **game\_board\_full:** `BOOLEAN` | ...|
-| **output\_game\_winner()** | **winning\_player:** `INTEGER` as `LOCAL (by value)` | `VOID` | ...|
+| **update\_board\_from\_player\_move()** | **player\_move:** `INTEGER` `by value` | `VOID` | ...|
+| **check\_gameboard\_win()** | **game\_board:** `ARRAY[7][6]` `by value` | **game\_won:** `BOOLEAN` | ...|
+| **check\_game\_board\_full()** | **game\_board:** `ARRAY[7][6]` `by value` | **game\_board\_full:** `BOOLEAN` | ...|
+| **output\_game\_winner()** | **winning\_player:** `INTEGER` `by value` | `VOID` | ...|
 
 # Setting up your python environment
 - To make sure all libraries can be imported, run`pip install -r requirements
