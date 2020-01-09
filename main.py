@@ -29,17 +29,16 @@ def draw_game_board():
 
 # Checking if all spaces are filled with player's stuff, hopefully
 def check_gameboard_full():
-    # global board_full // I don't think that a global value is required for a LOCAL variable (byval)
     count = 0
     board_full = False
+
     for i in range(6):
         for j in range(7):
-            if Game_board[i][j] == u"\u25CF":
+            if Game_board[i][j] != 0:
                 count += 1
     if count == 42:
         board_full = True
-    print(board_full)  # just testing if it can count
-    print(count)
+
     return board_full
 
 
