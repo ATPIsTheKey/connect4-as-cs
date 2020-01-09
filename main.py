@@ -3,6 +3,7 @@ from colorama import Fore, init, Back
 init(autoreset=True)
 
 Game_board = []
+board_markers = [1, 2, 3, 4, 5, 6, 7]
 
 
 # u"\u25CF" is the code for a circle
@@ -23,10 +24,15 @@ init_game_board()
 # Game board drawing function
 def draw_game_board():
     players = {
-        'O': 'O',
+        'O': u"\u25EF",
         '1': Fore.RED + u"\u25CF",
         '2': Fore.YELLOW + u"\u25CF"
     }
+    print(Back.BLUE+' ', end='')
+    for v in range(6):
+        print(Back.BLUE + Fore.BLACK + str(board_markers[v]), end=Back.BLUE+'  ')
+    print(Back.BLUE + Fore.BLACK + str(board_markers[6]), end='')
+    print(Back.BLUE+' ')
     for i in range(6):
         print(Back.CYAN + ' ', end='')
         for j in range(6):
