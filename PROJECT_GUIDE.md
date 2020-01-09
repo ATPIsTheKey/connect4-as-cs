@@ -19,7 +19,7 @@
 | **init\_game\_board()** | `VOID` | `ARRAY[7][6]` | ...|
 | **draw\_game\_board()** | **game\_board:** `ARRAY[7][6]` `by value` | `VOID` | ...|
 | **input\_player\_move()** | `VOID` | **valid\_player\_move:** `INTEGER` | ...|
-| **update\_board\_from\_player\_move()** | **game\_board:** **player\_move:** `INTEGER` `by value` | `VOID` | ...|
+| **update\_board\_from\_player\_move()** | **player\_move:** `INTEGER` `by value` | `VOID` | ...|
 | **check\_gameboard\_win()** | **game\_board:** `ARRAY[7][6]` `by value` | **game\_won:** `BOOLEAN` | ...|
 | **check\_game\_board\_full()** | **game\_board:** `ARRAY[7][6]` `by value` | **game\_board\_full:** `BOOLEAN` | ...|
 | **output\_game\_winner()** | **winning\_player:** `INTEGER` `by value` | `VOID` | ...|
