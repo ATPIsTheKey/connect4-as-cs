@@ -2,37 +2,32 @@ from colorama import Fore, init, Back
 
 init(autoreset=True)
 
-Game_board = []
-board_markers = [1, 2, 3, 4, 5, 6, 7]
-
-
-# u"\u25CF" is the code for a circle
-
 
 # Game board array initialization
 def init_game_board():
-    global Game_board
-    for i in range(6):
-        Game_board.append([])
-        for j in range(7):
-            Game_board[i].append("O")
+    new_game_board = [[0 for n in range(7)] for arr in range(6)]
+    return new_game_board
 
 
-init_game_board()
+Game_board = init_game_board()
 
 
 # Game board drawing function
 def draw_game_board():
+    board_markers = [1, 2, 3, 4, 5, 6, 7]
+
     players = {
         'O': u"\u25EF",
         '1': Fore.RED + u"\u25CF",
         '2': Fore.YELLOW + u"\u25CF"
     }
+
     print(Back.BLUE+' ', end='')
     for v in range(6):
         print(Back.BLUE + Fore.BLACK + str(board_markers[v]), end=Back.BLUE+'  ')
     print(Back.BLUE + Fore.BLACK + str(board_markers[6]), end='')
-    print(Back.BLUE+' ')
+    print(Back.BLUE + ' ')
+
     for i in range(6):
         print(Back.CYAN + ' ', end='')
         for j in range(6):
@@ -62,5 +57,7 @@ for k in range(4):
 for p in range(2, 6):
     Game_board[p][6] = 2
 
-draw_game_board()
-check_gameboard_full()
+
+if __name__ == '__main__':
+    draw_game_board()
+    check_gameboard_full()
