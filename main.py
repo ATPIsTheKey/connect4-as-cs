@@ -17,13 +17,21 @@ def init_game_board():
             Game_board[i].append("O")
 
 
+init_game_board()
+
+
 # Game board drawing function
 def draw_game_board():
+    players = {
+        'O': 'O',
+        '1': Fore.RED + u"\u25CF",
+        '2': Fore.YELLOW + u"\u25CF"
+    }
     for i in range(6):
         print(Back.CYAN + ' ', end='')
         for j in range(6):
-            print(Back.CYAN + Fore.BLACK + str(Game_board[i][j]), end=Back.CYAN + '  ')
-        print(Back.CYAN + Fore.BLACK + str(Game_board[i][6]), end='')
+            print(Back.CYAN + Fore.BLACK + players[str(Game_board[i][j])], end=Back.CYAN + '  ')
+        print(Back.CYAN + Fore.BLACK + players[str(Game_board[i][6])], end='')
         print(Back.CYAN + ' ')
 
 
@@ -42,6 +50,11 @@ def check_gameboard_full():
     return board_full
 
 
-init_game_board()
+# Testing the positioning and conversion
+for k in range(4):
+    Game_board[5][k] = 1
+for p in range(2, 6):
+    Game_board[p][6] = 2
+
 draw_game_board()
 check_gameboard_full()
