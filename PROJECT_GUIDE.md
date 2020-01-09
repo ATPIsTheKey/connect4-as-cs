@@ -16,7 +16,7 @@
 
 | **Module/function name** | **Parameters** | **Return values** | **Description** |
 | --- | --- | --- | --- |
-| **init\_game\_board()** | `VOID` | `ARRAY[7][6]` | ...|
+| **init\_game\_board()** | `VOID` | **game\_board:** `ARRAY[7][6]` | ...|
 | **draw\_game\_board()** | **game\_board:** `ARRAY[7][6]` `by value` | `VOID` | ...|
 | **input\_player\_move()** | `VOID` | **valid\_player\_move:** `INTEGER` | ...|
 | **update\_board\_from\_player\_move()** | **player\_move:** `INTEGER` `by value` | `VOID` | ...|
