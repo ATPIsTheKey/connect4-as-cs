@@ -25,7 +25,6 @@
 | **output\_game\_winner()** | **winning\_player:** `INTEGER` `by value` | `VOID` | ...|
 
 # Setting up your python environment
-- To make sure all libraries can be imported, run`pip install -r requirements
-.txt --no-index --find-links file:///tmp/packages` in this project's directory
+- To make sure all libraries can be imported, run`pip install -r requirements.txt --no-index --find-links file:///tmp/packages` in this project's directory
   before running the program.
  - Also, you have to use Python 3.
