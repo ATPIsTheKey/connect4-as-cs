@@ -17,7 +17,7 @@ def draw_game_board():
     board_markers = [1, 2, 3, 4, 5, 6, 7]
 
     players = {
-        'O': u"\u25EF",
+        '0': u"\u25EF",
         '1': Fore.RED + u"\u25CF",
         '2': Fore.YELLOW + u"\u25CF"
     }
