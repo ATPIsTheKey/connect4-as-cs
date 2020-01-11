@@ -86,7 +86,40 @@ for p in range(2, 6):
 #           Game_board[5 - count][x_position - 1] = 2
 #   current_player += 1
 
+#Gustas part
+#didnt include players yet
+
+# def input_player_move():
+while True:
+    print("Choose column 1-7")
+    playerinput = input()
+    try:
+        inputvalue = int(playerinput)
+        if 0 < inputvalue < 8:
+            break
+        else:
+            print("Please input a valid integer")
+    except ValueError:
+        print("Please input a valid integer")
+
+# def update_board_from_player_move()
+# Check Board
+rowcount = 0
+for row in range(6):
+    if Game_board[row][inputvalue - 1] == 0:
+        rowcount += 1
+if rowcount == 0:
+    # Invalid - Return to Input
+    print(rowcount)
+else:
+    Game_board[rowcount - 1][inputvalue - 1] = 1
+    # Update Board (Insert Value)
+    for row in range(6):
+        print(Game_board[row])
+
+
 
 if __name__ == '__main__':
     draw_game_board()
     check_gameboard_full()
+

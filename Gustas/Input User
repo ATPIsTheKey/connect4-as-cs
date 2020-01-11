@@ -1,0 +1,60 @@
+game_board = []
+
+for row in range(6):
+    game_board.append([])
+    for column in range(7):
+        game_board[row].append(0)
+
+for row in range(6):
+    print(game_board[row])
+
+# Create PLayers
+
+player1 = True
+player2 = False
+currentplayer = True
+
+# Player Input
+# currentplayer = not currentplayer
+
+# player1 = not player1
+# player2 = not player2
+
+# Player Turns
+if currentplayer:
+    coin = 1
+else:
+    coin = 2
+
+VictoryRoyale = False
+#while not VictoryRoyale:
+    # at end of turn loop
+    #currentplayer = not currentplayer
+
+
+# def input_player_move():
+while True:
+    print("Choose column 1-7")
+    playerinput = input()
+    try:
+        inputvalue = int(playerinput)
+        if 0 < inputvalue < 8:
+            break
+        else:
+            print("Please input a valid integer")
+    except ValueError:
+        print("Please input a valid integer")
+
+# Check Board
+rowcount = 0
+for row in range(6):
+    if game_board[row][inputvalue - 1] == 0:
+        rowcount += 1
+if rowcount == 0:
+    # Invalid - Return to Input
+    print(rowcount)
+else:
+    game_board[rowcount - 1][inputvalue - 1] = 1
+    # Update Board (Insert Value)
+    for row in range(6):
+        print(game_board[row])
