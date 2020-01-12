@@ -1,6 +1,6 @@
 Test_game_board = [
     [1, 2, 3, 4, 0, 0, 0],
-    [3, 1, 2, 3, 4, 0, 0],
+    [3, 1, 1, 2, 2, 2, 2],
     [4, 3, 1, 2, 3, 4, 0],
     [0, 4, 3, 1, 2, 3, 4],
     [0, 0, 4, 3, 1, 2, 3],
@@ -35,6 +35,28 @@ def check_win_columns(game_board):
 
 
 def check_win_rows(game_board):
+    critical_col_index = 3  # column index after which no more chain of 4
+                            # discs can be made
+
+    for row_i in range(len(game_board)):
+        consec = 1
+        player_id = game_board[row_i][0]
+
+        for col_i in range(len(game_board[0])):
+            disc_id = game_board[row_i][col_i]
+
+            if disc_id == player_id and disc_id != 0:
+                consec += 1
+
+                if consec == 4:
+                    return True
+            else:
+                if row_i == critical_col_index:
+                    break
+
+                consec = 1
+                player_id = disc_id
+
     return False
 
 
@@ -100,6 +122,7 @@ def check_win_diagonals_rl(game_board):  # todo: implement critical indices
     return False
 
 
+# todo: unit test win checks
 def check_win(game_board):
     if check_win_columns(game_board) or check_win_diagonals_rl(game_board) \
             or check_win_diagonals_lr(game_board) or check_win_rows(game_board):
