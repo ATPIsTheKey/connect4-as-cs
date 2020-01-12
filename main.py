@@ -1,6 +1,7 @@
-from colorama import Fore, init, Back
+import colorama
+from colorama import Fore, Back
 
-init(autoreset=True)
+colorama.init(autoreset=True)
 
 
 # Game board array initialization
@@ -86,8 +87,10 @@ for p in range(2, 6):
 #           Game_board[5 - count][x_position - 1] = 2
 #   current_player += 1
 
+
 #Gustas part
 #didnt include players yet
+
 
 # def input_player_move():
 while True:
