@@ -5,12 +5,12 @@ Test_game_board = [
     [0, 4, 3, 1, 2, 3, 4],
     [0, 0, 4, 3, 1, 2, 3],
     [0, 0, 0, 4, 3, 1, 2]
-]
+]  # todo: remove in the future
 
 
 def check_win_columns(game_board):
     critical_row_index = 3  # row index after which no more chain of 4 discs
-    # can be made
+                            # can be made
 
     for col_i in range(len(game_board[0])):
         consec = 1
@@ -25,8 +25,8 @@ def check_win_columns(game_board):
                 if consec == 4:
                     return True
             else:
-                if row_i == critical_row_index:  # at this point there can be
-                    break  # no more chain of 4 discs
+                if row_i == critical_row_index:
+                    break
 
                 consec = 1
                 player_id = disc_id
