@@ -1,18 +1,19 @@
-Game_board = [
-    [1, 0, 0, 1, 0, 0, 0],
-    [0, 0, 2, 1, 0, 0, 0],
-    [1, 0, 1, 2, 0, 0, 0],
-    [0, 0, 2, 1, 0, 0, 1],
-    [1, 0, 2, 1, 0, 0, 1],
-    [0, 0, 0, 0, 0, 0, 1]
+Test_game_board = [
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0]
 ]  # todo: remove later
 
 
 def check_win_columns(game_board):
-    critical = 3
+    critical_row_index = 3  # row index after which no more chain of 4 discs
+                            # can be made
 
     for column_i in range(len(game_board[0])):
-        consecutive = 0
+        consecutive = 1
         player_id = game_board[0][column_i]
 
         for row_i in range(len(game_board)):
@@ -25,22 +26,22 @@ def check_win_columns(game_board):
                     return True
 
             else:
-                if row_i == critical:
-                    break
+                if row_i == critical_row_index:  # at this point there can be
+                    break                        # no more chain of 4 discs
 
-                consecutive = 0
+                consecutive = 1
                 player_id = disc_id
-                continue
 
     return False
 
 
-def check_win_diagonals():
-    critical = 1  # critical value of initial diagonal 1 is 1
+def check_win_diagonals(game_board):
     return
 
 
 def check_win(game_board):
     game_win = False
-
     return game_win
+
+
+print(check_win_columns(Test_game_board))
