@@ -1,5 +1,6 @@
-import colorama
+import colorama, os, time, subprocess
 from colorama import Fore, Back
+
 
 colorama.init(autoreset=True)
 
@@ -22,6 +23,7 @@ def draw_game_board():
         '1': Fore.RED + u"\u25CF",
         '2': Fore.YELLOW + u"\u25CF"
     }
+    screen_clear()
 
     print(Back.BLUE + ' ', end='')
     for v in range(6):
@@ -35,6 +37,11 @@ def draw_game_board():
             print(Back.CYAN + Fore.BLACK + players[str(Game_board[i][j])], end=Back.CYAN + '  ')
         print(Back.CYAN + Fore.BLACK + players[str(Game_board[i][6])], end='')
         print(Back.CYAN + ' ')
+
+
+# Clears the screen
+def screen_clear():
+    os.call('clear' if os.name == 'posix' else 'cls')
 
 
 # Checking if all spaces are filled with player's stuff, hopefully
@@ -121,8 +128,6 @@ else:
         print(Game_board[row])
 
 
-
 if __name__ == '__main__':
     draw_game_board()
     check_gameboard_full()
-
