@@ -201,7 +201,7 @@ if __name__ == '__main__':
             screen_clear()
             draw_game_board(Game_board)
 
-            if check_win(Game_board):
+            if check_win(Game_board) or check_gameboard_full(Game_board):
                 break
         except KeyboardInterrupt:
             print('\n')
