@@ -63,7 +63,7 @@ def input_player_move(player):
 
 def check_win_columns(game_board):
     for col_i in range(len(game_board[0])):
-        consec = 1
+        consec = 0
         player_id = game_board[0][col_i]
 
         for row_i in range(len(game_board)):
@@ -73,9 +73,10 @@ def check_win_columns(game_board):
                 consec += 1
 
                 if consec == 4:
+                    print(consec)
                     return True
             else:
-                consec = 1
+                consec = 0
                 player_id = disc_id
 
     return False
@@ -83,7 +84,7 @@ def check_win_columns(game_board):
 
 def check_win_rows(game_board):
     for row_i in range(len(game_board)):
-        consec = 1
+        consec = 0
         player_id = game_board[row_i][0]
 
         for col_i in range(len(game_board[0])):
@@ -92,7 +93,7 @@ def check_win_rows(game_board):
             if disc_id == player_id and disc_id != 0:
                 consec += 1
 
-                if consec == 5:
+                if consec == 4:
                     return True
             else:
                 consec = 1
@@ -178,7 +179,7 @@ def update_board_from_player_move(input_value, player_id):
     if row_count == 0:
         # Invalid - ask again for input since column full
         print("Column full, please input another move.")
-        update_board_from_player_move(input_player_move(), player_id)
+        update_board_from_player_move(input_player_move(player_id), player_id)
     else:
         Game_board[row_count - 1][input_value - 1] = player_id
 
@@ -203,6 +204,7 @@ if __name__ == '__main__':
             if check_win(Game_board):
                 break
         except KeyboardInterrupt:
-            pass
+            print('\n')
+            exit(0)
 
     print("Player {pl} has won the game!".format(pl=current_player))
