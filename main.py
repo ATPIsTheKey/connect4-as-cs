@@ -73,10 +73,9 @@ def check_win_columns(game_board):
                 consec += 1
 
                 if consec == 4:
-                    print(consec)
                     return True
             else:
-                consec = 0
+                consec = 1
                 player_id = disc_id
 
     return False
