@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import os
 
 import colorama as clr
@@ -214,4 +212,3 @@ if __name__ == '__main__':
 
         except KeyboardInterrupt:
             break
->>>>>>> dev
