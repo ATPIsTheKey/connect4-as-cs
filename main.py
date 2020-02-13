@@ -48,21 +48,20 @@ def check_gameboard_full(game_board):
     return board_full
 
 
-def input_player_move():
+def input_player_move(player):
     while True:
-        input_value = input("Choose column 1-7: ")
+        input_value = input("Player {}, please choose column 1-7: ".format(
+            player)
+        )
 
         if input_value.isnumeric():
             if int(input_value) in range(1, 8):
                 return int(input_value)
 
-        print("Please input a integer between 1 and 7!")
+        print("Input must be between 1 and 7!")
 
 
 def check_win_columns(game_board):
-    critical_row_index = 3  # row index after which no more chain of 4 discs
-                            # can be made
-
     for col_i in range(len(game_board[0])):
         consec = 1
         player_id = game_board[0][col_i]
@@ -76,9 +75,6 @@ def check_win_columns(game_board):
                 if consec == 4:
                     return True
             else:
-                if row_i == critical_row_index:
-                    break
-
                 consec = 1
                 player_id = disc_id
 
@@ -86,9 +82,6 @@ def check_win_columns(game_board):
 
 
 def check_win_rows(game_board):
-    critical_col_index = 4  # column index after which no more chain of 4
-                            # discs can be made
-
     for row_i in range(len(game_board)):
         consec = 1
         player_id = game_board[row_i][0]
@@ -99,12 +92,9 @@ def check_win_rows(game_board):
             if disc_id == player_id and disc_id != 0:
                 consec += 1
 
-                if consec == 4:
+                if consec == 5:
                     return True
             else:
-                if row_i == critical_col_index:
-                    break
-
                 consec = 1
                 player_id = disc_id
 
@@ -174,14 +164,11 @@ def check_win_diagonals_rl(game_board):
 
 
 def check_win(game_board):
-    if check_win_columns(game_board) or check_win_diagonals_rl(game_board) \
-            or check_win_diagonals_lr(game_board):
-        return True
-    else:
-        return False
+    return check_win_columns(game_board) or check_win_diagonals_rl(game_board) \
+            or check_win_diagonals_lr(game_board) or check_win_rows(game_board)
 
 
-def update_board_from_player_move(input_value):
+def update_board_from_player_move(input_value, player_id):
     global Game_board
 
     row_count = 0
@@ -191,18 +178,31 @@ def update_board_from_player_move(input_value):
     if row_count == 0:
         # Invalid - ask again for input since column full
         print("Column full, please input another move.")
-        update_board_from_player_move(input_player_move())
+        update_board_from_player_move(input_player_move(), player_id)
     else:
-        Game_board[row_count - 1][input_value - 1] = 1
+        Game_board[row_count - 1][input_value - 1] = player_id
 
 
 if __name__ == '__main__':
+    current_player = 2
     screen_clear()
     draw_game_board(Game_board)
+
     while True:
-        valid_move = input_player_move()
-        update_board_from_player_move(valid_move)
-        screen_clear()
-        draw_game_board(Game_board)
-        if check_win(Game_board):
-            break
+        try:
+            if current_player == 1:
+                current_player = 2
+            else:
+                current_player = 1
+
+            valid_move = input_player_move(current_player)
+            update_board_from_player_move(valid_move, current_player)
+            screen_clear()
+            draw_game_board(Game_board)
+
+            if check_win(Game_board):
+                break
+        except KeyboardInterrupt:
+            pass
+
+    print("Player {pl} has won the game!".format(pl=current_player))
