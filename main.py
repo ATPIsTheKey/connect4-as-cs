@@ -11,16 +11,20 @@ def draw_game_board(game_board):
     }
 
     print(clr.Back.BLUE + ' ', end='')
+    
     for v in range(6):
         print(clr.Back.BLUE + clr.Fore.BLACK + str(v + 1), end=clr.Back.BLUE + '  ')
+        
     print(clr.Back.BLUE + clr.Fore.BLACK + '7', end='')
     print(clr.Back.BLUE + ' ')
 
     for i in range(6):
         print(clr.Back.CYAN + ' ', end='')
+        
         for j in range(6):
             print(clr.Back.CYAN + clr.Fore.BLACK + players[str(game_board[i][j])],
                   end=clr.Back.CYAN + '  ')
+            
         print(clr.Back.CYAN + clr.Fore.BLACK + players[str(game_board[i][6])], end='')
         print(clr.Back.CYAN + ' ')
 
@@ -37,6 +41,7 @@ def check_gameboard_full(game_board):
         for j in range(7):
             if game_board[i][j] != 0:
                 count += 1
+                
     if count == 42:
         board_full = True
 
@@ -45,9 +50,7 @@ def check_gameboard_full(game_board):
 
 def input_player_move(player):
     while True:
-        input_value = input("Player {}, please choose a column 1-7: ".format(
-            player)
-        )
+        input_value = input("Player {}, please choose a column 1-7: ".format(player))
 
         if input_value.isnumeric():
             if int(input_value) in range(1, 8):
@@ -173,7 +176,8 @@ def update_board_from_player_move(game_board, input_value, player_id):
     if row_count == 0:
         print("Column full, please input another move!")
         game_board = update_board_from_player_move(
-            game_board, input_player_move(player_id), player_id)
+            game_board, input_player_move(player_id), player_id
+        )
     else:
         game_board[row_count - 1][input_value - 1] = player_id
 
